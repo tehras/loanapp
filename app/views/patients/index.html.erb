@@ -1,0 +1,46 @@
+<h1>
+  Patients
+  <small>All Patients</small>
+</h1>
+<ol class="breadcrumb">
+  <li><i class="fa fa-dashboard"></i> <a href="/">Dashboard</a></li>
+  <li class="active">Patient List</li>
+</ol>
+
+<div class="portlet portlet-default" style="margin-top:25px">
+  <div class="portlet-heading">
+    <div class="portlet-title">
+      <h4>Patient List</h4>
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+  <div id="buttons" class="panel-collapse collapse in">
+    <div class="protlet-body" style="background-color:#ffffff; padding-right:25px; padding-left:25px; padding-bottom:25px">
+      <br/>
+      <% @patients.each do |patient| %>
+          <% if patient.first_name.empty? && patient.last_name.empty? %>
+              <% @temp = "N/A" %>
+          <% else %>
+              <% @temp = patient.first_name + " " + patient.last_name %>
+          <% end %>
+          <% @patientJS = "retrievePatient(" + patient.id.to_s + ")" %>
+          <div style="height:34px"><span><a data-toggle="modal" data-target="#flexModal" href="" style="font-size:120%" onclick="retrievePatient(<%=patient.id.to_s%>)"><%= @temp %></a></span>
+                <span style="float:right"><%= link_to 'Edit', edit_patient_path(patient), :class => "btn btn-green", :style => "height:50%" %>
+                  <%= link_to 'Destroy', patient, method: :delete, :class => "btn btn-red", :style => "height:50%" %></span>
+          </div>
+      <% end %>
+      <br/>
+      <span><%= link_to 'New Patient', new_patient_path, :style => "height:200%", :class => "btn btn-blue btn-lg" %></span>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-flex fade in" id="flexModal" tabindex="-1" role="dialog" aria-labelledby="flexModalLabel" aria-hidden="false" style="display: none;">
+  <div class="modal-dialog patient-block">
+
+  </div><!-- /.modal-dialog -->
+</div>
+
+
+

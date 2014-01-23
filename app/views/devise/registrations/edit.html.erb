@@ -1,0 +1,26 @@
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, class: 'form-signin'  }) do |f| %>
+  <h2 class="form-signin-heading">Edit user</h2>
+
+  <div class="form-inputs">
+
+    <%= f.input :name, placeholder: 'Name', :autocomplete => "off", :label => false, input_html: { class: 'form-control form-top' } %>
+    <%= f.input :email, placeholder: 'Email Address',  :label => false, input_html: { class: 'form-control form-middle' } %>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <p class="link-text" >Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+    <% end %>
+
+    <%= f.input :password, placeholder: 'New Password',  :label => false, input_html: { class: 'form-control form-middle' } %>
+    <%= f.input :password_confirmation, placeholder: 'Password Confirmation',  :label => false, input_html: { class: 'form-control form-bottom' } %>
+
+    <hr>
+    <%= f.input :current_password, required: true, :label => false, placeholder: 'Old Password', input_html: { class: 'form-control' }%>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Update", class: 'btn btn-primary btn-lg btn-block btn-cust-blue btn-cust' %>
+  </div>
+  <hr>
+  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), 
+    :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+<% end %>

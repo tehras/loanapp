@@ -1,0 +1,46 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require font-awesome
+ *= require_tree .
+ */
+.fa {
+  color: white;
+}
+
+ul.dropdown-menu li a i.fa {
+  color: black;
+}
+
+ul.nav.in li a i.fa {
+  color: black;
+  font-weight: normal;
+}
+
+ul#side li a {
+  font-weight: bold;
+}
+
+#reportrange{
+  height:46px;
+}
+
+.form-control{
+  margin-bottom: 15px;
+}
+
+.row{
+  left-margin: 0px;
+  right-margin: 0px;
+}
+
+
+

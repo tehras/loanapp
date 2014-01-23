@@ -1,0 +1,66 @@
+
+        <h1>
+          Patients <small>All Patients</small>
+        </h1>
+        <table>
+          <thead>
+          <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Home phone</th>
+            <th>Mobile phone</th>
+            <th>Fax number</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Country</th>
+            <th>Nationality</th>
+            <th>Languages spoken</th>
+            <th>Reasons for service</th>
+            <th>Type of service</th>
+            <th>Requires car</th>
+            <th>Require hha</th>
+            <th>Required services</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @patients.each do |patient| %>
+              <tr>
+                <td><%= patient.first_name %></td>
+                <td><%= patient.last_name %></td>
+                <td><%= patient.email %></td>
+                <td><%= patient.home_phone %></td>
+                <td><%= patient.mobile_phone %></td>
+                <td><%= patient.fax_number %></td>
+                <td><%= patient.street %></td>
+                <td><%= patient.city %></td>
+                <td><%= patient.state %></td>
+                <td><%= patient.zip %></td>
+                <td><%= patient.country %></td>
+                <td><%= patient.nationality %></td>
+                <td><%= patient.languages_spoken %></td>
+                <td><%= patient.reasons_for_service %></td>
+                <td><%= patient.type_of_service %></td>
+                <td><%= patient.requires_car %></td>
+                <td><%= patient.require_HHA %></td>
+                <td><%= patient.required_services %></td>
+                <td><%= link_to 'Show', patient %></td>
+                <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+                <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+
+        <br>
+
+        <%= link_to 'New Patient', new_patient_path %>
+
+
+

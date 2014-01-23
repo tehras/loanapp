@@ -1,0 +1,38 @@
+<div class="container">
+  <h3>Users</h3>
+  <div class="span8">
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Registered</th>
+        <th>Role</th>
+        <th class="centered">SI Count</th>
+        <th>Last SI</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name%></td>
+        <td><%= user.email %></td>
+        <td><%= user.created_at.to_date %></td>
+        <td><%= user.roles.first.name.titleize unless user.roles.first.nil? %></td>
+        <td class="centered"><%= user.sign_in_count %></td>
+        <td><%= user.last_sign_in_at %></td>
+        <td>
+          <% unless user == current_user then %>
+            <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini" type="button">Change role</a>
+            <%= render user %>
+          <% end %>
+        </td>
+        <td><%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini') unless user == current_user %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>

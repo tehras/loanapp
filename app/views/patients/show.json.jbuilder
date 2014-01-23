@@ -1,0 +1,1 @@
+json.extract! @patient, :id, :first_name, :last_name, :email, :home_phone, :mobile_phone, :fax_number, :street, :city, :state, :zip, :country, :nationality, :languages_spoken, :reasons_for_service, :type_of_service, :requires_car, :require_HHA, :required_services, :created_at, :updated_at

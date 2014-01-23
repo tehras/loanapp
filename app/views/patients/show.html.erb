@@ -1,0 +1,103 @@
+
+<h1>
+  <%= @patient.first_name %> <small>Patient</small>
+</h1>
+<ol class="breadcrumb">
+  <li><i class="fa fa-dashboard"></i> <a href="/">Dashboard</a></li>
+  <li class="active">Blank Page</li>
+</ol>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @patient.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @patient.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @patient.email %>
+</p>
+
+<p>
+  <strong>Home phone:</strong>
+  <%= @patient.home_phone %>
+</p>
+
+<p>
+  <strong>Mobile phone:</strong>
+  <%= @patient.mobile_phone %>
+</p>
+
+<p>
+  <strong>Fax number:</strong>
+  <%= @patient.fax_number %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @patient.street %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @patient.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @patient.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @patient.zip %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @patient.country %>
+</p>
+
+<p>
+  <strong>Nationality:</strong>
+  <%= @patient.nationality %>
+</p>
+
+<p>
+  <strong>Languages spoken:</strong>
+  <%= @patient.languages_spoken %>
+</p>
+
+<p>
+  <strong>Reasons for service:</strong>
+  <%= @patient.reasons_for_service %>
+</p>
+
+<p>
+  <strong>Type of service:</strong>
+  <%= @patient.type_of_service %>
+</p>
+
+<p>
+  <strong>Requires car:</strong>
+  <%= @patient.requires_car %>
+</p>
+
+<p>
+  <strong>Require hha:</strong>
+  <%= @patient.require_HHA %>
+</p>
+
+<p>
+  <strong>Required services:</strong>
+  <%= @patient.required_services %>
+</p>
+
+<%= link_to 'Edit', edit_patient_path(@patient) %> |
+<%= link_to 'Back', patients_path %>

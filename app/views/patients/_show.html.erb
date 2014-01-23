@@ -1,0 +1,113 @@
+
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title " id="flexModalLabel">  <%= @patient.first_name %> <%= @patient.last_name %> <small>Patient</small></h4>
+  </div>
+  <div class="modal-body ">
+
+<p id="notice"><%= notice %></p>
+<div class="row">
+<div class="col-lg-6">
+<p>
+  <strong>First name:</strong>
+  <%= @patient.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @patient.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @patient.email %>
+</p>
+
+<p>
+  <strong>Home phone:</strong>
+  <%= @patient.home_phone %>
+</p>
+
+<p>
+  <strong>Mobile phone:</strong>
+  <%= @patient.mobile_phone %>
+</p>
+
+<p>
+  <strong>Fax number:</strong>
+  <%= @patient.fax_number %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @patient.street %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @patient.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @patient.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @patient.zip %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @patient.country %>
+</p>
+
+</div>
+<div class="col-lg-6">
+<p>
+  <strong>Nationality:</strong>
+  <%= @patient.nationality %>
+</p>
+
+<p>
+  <strong>Languages spoken:</strong>
+  <%= @patient.languages_spoken %>
+</p>
+
+<p>
+  <strong>Reasons for service:</strong>
+  <%= @patient.reasons_for_service %>
+</p>
+
+<p>
+  <strong>Type of service:</strong>
+  <%= @patient.type_of_service %>
+</p>
+
+<p>
+  <strong>Requires car:</strong>
+  <%= @patient.requires_car %>
+</p>
+
+<p>
+  <strong>Require hha:</strong>
+  <%= @patient.require_HHA %>
+</p>
+
+<p>
+  <strong>Required services:</strong>
+  <%= @patient.required_services %>
+</p>
+</div>
+</div>
+
+
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <%= link_to 'Edit', edit_patient_path(@patient), :class=>"btn btn-green" %>
+  </div>
+</div><!-- /.modal-content -->

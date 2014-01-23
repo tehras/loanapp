@@ -1,0 +1,17 @@
+<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put, class: 'form-signin' }) do |f| %>
+  <h2 class="form-signin-heading">Change your password</h2>
+
+  <%= f.input :reset_password_token, :as => :hidden %>
+  <%= f.full_error :reset_password_token %>
+
+  <div class="form-inputs">
+    <%= f.input :password, placeholder: 'Password',  :label => false, input_html: { class: 'form-control form-middle' } %>
+    <%= f.input :password_confirmation, placeholder: 'Password Confirmation',  :label => false, input_html: { class: 'form-control form-bottom' } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Change Password", class: 'btn btn-primary btn-lg btn-block btn-cust-blue btn-cust' %>
+  </div>
+  <%= render "devise/shared/links" %>
+<% end %>
+
