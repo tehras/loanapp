@@ -1,4 +1,6 @@
 Loanapp::Application.routes.draw do
+  resources :employees
+
   resources :patients
 
   root :to => "home#index"

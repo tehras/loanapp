@@ -1,0 +1,61 @@
+<h1>Listing employees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Home number</th>
+      <th>Mobile number</th>
+      <th>Fax number</th>
+      <th>Street</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Nationality</th>
+      <th>Language</th>
+      <th>English</th>
+      <th>Years inus</th>
+      <th>Hha lic</th>
+      <th>Driver lic</th>
+      <th>Access tocar</th>
+      <th>Notes</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.first_name %></td>
+        <td><%= employee.last_name %></td>
+        <td><%= employee.email %></td>
+        <td><%= employee.home_number %></td>
+        <td><%= employee.mobile_number %></td>
+        <td><%= employee.fax_number %></td>
+        <td><%= employee.street %></td>
+        <td><%= employee.city %></td>
+        <td><%= employee.state %></td>
+        <td><%= employee.zip %></td>
+        <td><%= employee.nationality %></td>
+        <td><%= employee.language %></td>
+        <td><%= employee.english %></td>
+        <td><%= employee.years_inUs %></td>
+        <td><%= employee.hha_lic %></td>
+        <td><%= employee.driver_lic %></td>
+        <td><%= employee.access_toCar %></td>
+        <td><%= employee.notes %></td>
+        <td><%= link_to 'Show', employee %></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Employee', new_employee_path %>
