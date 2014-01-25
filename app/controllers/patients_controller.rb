@@ -11,8 +11,14 @@ class PatientsController < ApplicationController
   # GET /patients/1.json
   def show
     params["patient"];
+    if params["patient"] != nil then
     respond_to do |format|
       format.html { render :partial => 'patients/show' }
+    end
+    else
+      respond_to do |format|
+        format.html {render 'patients/show'}
+      end
     end
   end
 
