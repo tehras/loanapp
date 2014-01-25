@@ -39,18 +39,6 @@
 //= require demo/dashboard-demo.js
 
 
-retrievePatient = function (patient) {
-    var msg = {"patient":patient};
-    $.ajax({
-        type: 'GET',
-        url: '/patients/'+patient,
-        dataType: 'html',
-        data: msg,
 
-        success: function (response) {
-            $('.patient-block').html(response);
-        }
-    });
-}
 
 

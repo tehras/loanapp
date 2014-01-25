@@ -1,5 +1,17 @@
 // Code to do input validation ********************
+retrievePatient = function (patient) {
+    var msg = {"patient":patient};
+    $.ajax({
+        type: 'GET',
+        url: '/patients/'+patient,
+        dataType: 'html',
+        data: msg,
 
+        success: function (response) {
+            $('.patient-block').html(response);
+        }
+    });
+}
 // Turn off all events when a link is clicked, fixes bug of not leaving page after 1st click because of blur event
 function leave() {
     $('a').mousedown(function() {
