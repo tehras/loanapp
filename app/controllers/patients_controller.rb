@@ -17,7 +17,7 @@ class PatientsController < ApplicationController
     end
     else
       respond_to do |format|
-        format.html {render 'patients/show'}
+        format.html {redirect_to patient_url}
       end
     end
   end
@@ -38,7 +38,7 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.save
-        format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
+        format.html { redirect_to '/patients/index', notice: 'Patient was successfully created.' }
         format.json { render action: 'show', status: :created, location: @patient }
       else
         format.html { render action: 'new' }
@@ -52,7 +52,7 @@ class PatientsController < ApplicationController
   def update
     respond_to do |format|
       if @patient.update(patient_params)
-        format.html { redirect_to @patient, notice: 'Patient was successfully updated.' }
+        format.html { redirect_to patients_path, notice: 'Patient was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -65,6 +65,10 @@ class PatientsController < ApplicationController
   # DELETE /patients.json
   def destroy
     @patient.destroy
+    respond_to do |format|
+      format.html {redirect_to patients_path}
+      format.json { head :no_content }
+    end
   end
 
   private

@@ -27,7 +27,7 @@
           <% @patientJS = "retrievePatient(" + patient.id.to_s + ")" %>
           <div style="height:34px"><span><a data-toggle="modal" data-target="#flexModal" href="" style="font-size:120%" onclick="retrievePatient(<%=patient.id.to_s%>)"><%= @temp %></a></span>
                 <span style="float:right"><%= link_to 'Edit', edit_patient_path(patient), :class => "btn btn-green", :style => "height:50%" %>
-                  <%= link_to 'Destroy', patient, method: :delete, :class => "btn btn-red", :style => "height:50%" %></span>
+                  <%= link_to 'Destroy', patient_path(patient),method: :delete, :class => "btn btn-red", :style => "height:50%" %></span>
           </div>
       <% end %>
       <br/>

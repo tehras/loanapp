@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 //= require plugins/pace/pace.js
 //= require plugins/bootstrap/bootstrap.min.js
 //= require plugins/slimscroll/jquery.slimscroll.min.js
@@ -24,7 +25,7 @@
 //= require plugins/daterangepicker/moment.js
 //= require plugins/daterangepicker/daterangepicker.js
 //= require plugins/morris/raphael-2.1.0.min.js
-    //= require plugins/morris/morris.js
+//= require plugins/morris/morris.js
 //= require plugins/flot/jquery.flot.js
 //= require plugins/flot/jquery.flot.resize.js
 //= require plugins/sparkline/jquery.sparkline.min.js
