@@ -12,7 +12,7 @@ gem 'cancan'
 gem 'devise'
 gem 'figaro'
 gem 'pg'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 gem 'rolify'
 gem 'simple_form'
 gem 'font-awesome-rails'
