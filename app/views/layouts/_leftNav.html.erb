@@ -26,24 +26,24 @@
 <!-- end SIDE NAV SEARCH -->
 <!-- begin DASHBOARD LINK -->
 <li>
-  <a class="active" href="/">
+  <a class="<%= 'active' if params[:controller] == 'home' %>" href="/">
     <i class="fa fa-dashboard"></i> Dashboard
   </a>
 </li>
 <!-- end DASHBOARD LINK -->
 <!-- begin CHARTS DROPDOWN -->
 <li class="panel">
-  <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#charts">
+  <a class="<%= 'active' if params[:controller] == 'patients'%>" href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#charts">
     <i class="fa fa-wheelchair"></i> Patients <i class="fa fa-caret-down"></i>
   </a>
-  <ul class="collapse nav" id="charts">
+  <ul class="<%= 'collapse' if params[:controller] != 'patients' %> nav" id="charts">
     <li>
-      <a href="/patients">
+      <a class="<%= 'active' if params[:controller] == 'patients' && params[:action] == 'index' %>" href="/patients">
         <i class="fa fa-angle-double-right"></i> Patient List
       </a>
     </li>
     <li>
-      <a href="/patients/new">
+      <a class="<%= 'active' if params[:controller] == 'patients' && params[:action] == 'new' %>" href="/patients/new">
         <i class="fa fa-angle-double-right"></i> New Patient
       </a>
     </li>
@@ -51,22 +51,40 @@
 </li>
 
 <li class="panel">
-  <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#forms">
+  <a class="<%= 'active' if params[:controller] == 'employees' %>" href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#forms">
     <i class="fa fa-users"></i> Employee <i class="fa fa-caret-down"></i>
   </a>
-  <ul class="collapse nav" id="forms">
+  <ul class="<%= 'collapse' if params[:controller] != 'employees' %> nav" id="forms">
     <li>
-      <a href="/employees">
+      <a class="<%= 'active' if params[:controller] == 'employees' && params[:action] == 'index' %>" href="/employees">
         <i class="fa fa-angle-double-right"></i> Employee List
       </a>
     </li>
     <li>
-      <a href="/employees/new">
+      <a class="<%= 'active' if params[:controller] == 'employees' && params[:action] == 'new' %>" href="/employees/new">
         <i class="fa fa-angle-double-right"></i> New Employee
       </a>
     </li>
   </ul>
 </li>
+
+  <li class="panel">
+    <a class="<%= 'active' if params[:controller] == 'cases'%>" href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#cases">
+      <i class="fa fa-archive"></i> Cases <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="<%= 'collapse' if params[:controller] != 'cases' %> nav" id="cases">
+      <li>
+        <a class="<%= 'active' if params[:controller] == 'cases' && params[:action] == 'index' %>" href="/cases">
+          <i class="fa fa-angle-double-right"></i> Case List
+        </a>
+      </li>
+      <li>
+        <a class="<%= 'active' if params[:controller] == 'cases' && params[:action] == 'new' %>" href="/cases/new">
+          <i class="fa fa-angle-double-right"></i> New Case
+        </a>
+      </li>
+    </ul>
+  </li>
 
 <!-- end PAGES DROPDOWN -->
 </ul><!-- /.side-nav -->

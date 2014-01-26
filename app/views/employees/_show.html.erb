@@ -1,0 +1,116 @@
+
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title " id="flexModalLabel">  <%= @employee.first_name %> <%= @employee.last_name %> <small>Employee</small></h4>
+  </div>
+  <div class="modal-body ">
+
+    <p id="notice"><%= notice %></p>
+    <div class="row" style="font-size:80%">
+      <div class="col-lg-6">
+        <p id="notice"><%= notice %></p>
+
+        <p>
+          <strong>First name:</strong>
+          <%= @employee.first_name %>
+        </p>
+
+        <p>
+          <strong>Last name:</strong>
+          <%= @employee.last_name %>
+        </p>
+
+        <p>
+          <strong>Email:</strong>
+          <%= @employee.email %>
+        </p>
+
+        <p>
+          <strong>Home number:</strong>
+          <%= @employee.home_number %>
+        </p>
+
+        <p>
+          <strong>Mobile number:</strong>
+          <%= @employee.mobile_number %>
+        </p>
+
+        <p>
+          <strong>Fax number:</strong>
+          <%= @employee.fax_number %>
+        </p>
+
+        <p>
+          <strong>Street:</strong>
+          <%= @employee.street %>
+        </p>
+
+        <p>
+          <strong>City:</strong>
+          <%= @employee.city %>
+        </p>
+
+        <p>
+          <strong>State:</strong>
+          <%= @employee.state %>
+        </p>
+
+        <p>
+          <strong>Zip:</strong>
+          <%= @employee.zip %>
+        </p>
+        </div>
+        <div class="col-lg-6">
+
+        <p>
+          <strong>Nationality:</strong>
+          <%= @employee.nationality %>
+        </p>
+
+        <p>
+          <strong>Language:</strong>
+          <%= @employee.language %>
+        </p>
+
+        <p>
+          <strong>English:</strong>
+          <%= @employee.english %>
+        </p>
+
+        <p>
+          <strong>Years inus:</strong>
+          <%= @employee.years_inUs %>
+        </p>
+
+        <p>
+          <strong>Hha lic:</strong>
+          <%= @employee.hha_lic %>
+        </p>
+
+        <p>
+          <strong>Driver lic:</strong>
+          <%= @employee.driver_lic %>
+        </p>
+
+        <p>
+          <strong>Access tocar:</strong>
+          <%= @employee.access_toCar %>
+        </p>
+
+        <p>
+          <strong>Notes:</strong>
+          <%= @employee.notes %>
+        </p>
+
+      </div>
+    </div>
+
+
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <%= link_to 'Edit', edit_employee_path(@employee), :class=>"btn btn-green" %>
+  </div>
+</div><!-- /.modal-content -->

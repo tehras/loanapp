@@ -10,6 +10,16 @@ class EmployeesController < ApplicationController
   # GET /employees/1
   # GET /employees/1.json
   def show
+    params["employee"];
+    if params["employee"] != nil then
+      respond_to do |format|
+        format.html { render :partial => 'employees/show' }
+      end
+    else
+      respond_to do |format|
+        format.html {redirect_to employee_url}
+      end
+    end
   end
 
   # GET /employees/new
@@ -28,7 +38,7 @@ class EmployeesController < ApplicationController
 
     respond_to do |format|
       if @employee.save
-        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
+        format.html { redirect_to employees_path, notice: 'Employee was successfully created.' }
         format.json { render action: 'show', status: :created, location: @employee }
       else
         format.html { render action: 'new' }
@@ -42,7 +52,7 @@ class EmployeesController < ApplicationController
   def update
     respond_to do |format|
       if @employee.update(employee_params)
-        format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
+        format.html { redirect_to employees_path, notice: 'Employee was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

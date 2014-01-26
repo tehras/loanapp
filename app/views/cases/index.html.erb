@@ -1,0 +1,35 @@
+<h1>Listing cases</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Reason for end</th>
+      <th>Pay amount</th>
+      <th>Invoice</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cases.each do |cases| %>
+      <tr>
+        <td><%= cases.start_date %></td>
+        <td><%= cases.end_date %></td>
+        <td><%= cases.reason_for_end %></td>
+        <td><%= cases.pay_amount %></td>
+        <td><%= cases.invoice %></td>
+        <td><%= link_to 'Show', cases %></td>
+        <td><%= link_to 'Edit', edit_case_path(cases) %></td>
+        <td><%= link_to 'Destroy', cases, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Case', new_case_path %>

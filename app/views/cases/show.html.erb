@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @case.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @case.end_date %>
+</p>
+
+<p>
+  <strong>Reason for end:</strong>
+  <%= @case.reason_for_end %>
+</p>
+
+<p>
+  <strong>Pay amount:</strong>
+  <%= @case.pay_amount %>
+</p>
+
+<p>
+  <strong>Invoice:</strong>
+  <%= @case.invoice %>
+</p>
+
+<%= link_to 'Edit', edit_case_path(@case) %> |
+<%= link_to 'Back', cases_path %>

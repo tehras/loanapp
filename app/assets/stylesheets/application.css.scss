@@ -12,8 +12,13 @@
  *= require font-awesome
  *= require_tree .
  */
+
 .fa {
   color: white;
+}
+
+.fa-angle-double-right{
+  color: black;
 }
 
 ul.dropdown-menu li a i.fa {
@@ -41,6 +46,7 @@ ul#side li a {
   left-margin: 0px;
   right-margin: 0px;
 }
+
 
 
 
