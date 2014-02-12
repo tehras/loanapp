@@ -13,7 +13,7 @@ gem 'devise'
 gem 'figaro'
 gem 'pg'
 gem 'rails_12factor', group: :production
-gem 'rolify'
+gem 'rolify', '~> 3.2.0'
 gem 'simple_form'
 gem 'font-awesome-rails'
 gem 'jquery-turbolinks'
