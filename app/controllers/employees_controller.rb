@@ -10,11 +10,11 @@ class EmployeesController < ApplicationController
     @cases = Case.all
     if var == "employeeList"
       respond_to do |format|
-        format.html { render :partial=> 'employees/datatableEmployee'}
+        format.html { render :partial=> 'employees/listEmployee'}
       end
     elsif var == "employeeTable"
       respond_to do |format|
-        format.html { render :partial=> 'employees/listEmployee'}
+        format.html { render :partial=> 'employees/datatableEmployee'}
       end
     end
   end
