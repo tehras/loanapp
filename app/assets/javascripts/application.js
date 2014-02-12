@@ -39,6 +39,8 @@
 //= require bootstrap-select.js
 //= require bootstrap-datepicker.js
 //= require jquery.dataTables.js
+//= require live-validator.js
+//= require jquery.bind-first-0.2.2.js
 
 retrieveEmployee = function (employee) {
     var msg = {"employee":employee};

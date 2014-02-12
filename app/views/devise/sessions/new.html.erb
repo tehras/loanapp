@@ -2,8 +2,8 @@
 	<h2 class="form-signin-heading">Please login</h2>
 
 	<div class="form-inputs">
-		<%= f.input :email, :required => true, placeholder: 'Email Address',  :label => false, input_html: { class: 'form-control form-top validate-presence validate-regex' } %>
-		<%= f.input :password, :required => true, placeholder: 'Password',  :label => false, input_html: { class: 'form-control form-bottom validate-presence validate-length' } %>
+		<%= f.input :email, :required => true, placeholder: 'Email Address',  :label => false, input_html: { class: 'form-control form-top' } %>
+		<%= f.input :password, :required => true, placeholder: 'Password',  :label => false, input_html: { class: 'form-control form-bottom' } %>
 		<%= f.input :remember_me, :as => :boolean, :label => false, :inline_label => true if devise_mapping.rememberable? %>
 	</div>
 
@@ -15,15 +15,20 @@
 <% end %>
 
 <script>
-    $( document ).ready( function(){
-                new leave();
+    var ready;
+    ready = function() {
 
-                new presence();
-                new regex();
-                new length();
+        var vl = live_validator.init({
+            Error: {errorClass: 'help-inline'},
+            Wrapper: {wrapperClass: 'controls'},
+            Validators:
+            [
+                {name: "#user_email",rules:[{required:{}},{regex:{expression: 'email'}}]},
+                {name: "#user_password",rules:[{required:{}},{regex:{expression: 'password'}}]}
+            ]
+        })
+    };
 
-                // Disable button
-                $('input[name="commit"]').prop("disabled",true);
-            }
-    );
+    $(document).ready(ready());
+    //$(document).on('page:load', ready());
 </script>
