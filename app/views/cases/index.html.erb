@@ -1,35 +1,66 @@
-<h1>Listing cases</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Reason for end</th>
-      <th>Pay amount</th>
-      <th>Invoice</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cases.each do |cases| %>
-      <tr>
-        <td><%= cases.start_date %></td>
-        <td><%= cases.end_date %></td>
-        <td><%= cases.reason_for_end %></td>
-        <td><%= cases.pay_amount %></td>
-        <td><%= cases.invoice %></td>
-        <td><%= link_to 'Show', cases %></td>
-        <td><%= link_to 'Edit', edit_case_path(cases) %></td>
-        <td><%= link_to 'Destroy', cases, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
 <%= link_to 'New Case', new_case_path %>
+<h1>
+  Cases
+  <small>All Cases</small>
+</h1>
+<ol class="breadcrumb">
+  <li><i class="fa fa-dashboard"></i> <a href="/">Dashboard</a></li>
+  <li class="active">Case List</li>
+</ol>
+
+<div class="portlet portlet-default" style="margin-top:25px">
+  <div class="portlet-heading">
+    <div class="portlet-title">
+      <h4>Case List</h4>
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+  <div id="buttons" class="panel-collapse collapse in">
+    <div class="protlet-body" style="background-color:#ffffff; padding-right:25px; padding-left:25px; padding-bottom:25px">
+      <br/>
+      <% @cases.each do |lcase| %>
+
+          <% @tempPatient = @patients.find(lcase.patient_id).first_name + " " + @patients.find(lcase.patient_id).last_name %>
+          <% @tempEmployee =  @employees.find(lcase.employee_id).first_name + " " + @employees.find(lcase.employee_id).last_name %>
+          <% @caseJS = "retrieveCase(" + lcase.id.to_s + ")" %>
+          <div style="height:34px"><span><a data-toggle="modal" data-target="#flexModal" href="" style="font-size:120%" onclick="retrieveCase(<%=lcase.id.to_s%>)"><span class="patientSpan"><%= @tempPatient %> </span> || <span class="employeeSpan"> <%= @tempEmployee %></span></a></span>
+                <span style="float:right"><%= link_to 'Edit', edit_case_path(lcase), :class => "btn btn-green", :style => "height:50%" %>
+                  <%= link_to 'Destroy', case_path(lcase),method: :delete, :class => "btn btn-red", :style => "height:50%" %></span>
+          </div>
+      <% end %>
+
+      <span class="patientSpan">*Patient</span>
+      <span class="employeeSpan">*Employee</span>
+
+      <br/>
+      <span style="margin-top:20px "><%= link_to 'New Case', new_case_path, :style => "height:200%; margin-top:10px", :class => "btn btn-blue btn-lg" %></span>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-flex fade in" id="flexModal" tabindex="-1" role="dialog" aria-labelledby="flexModalLabel" aria-hidden="false" style="display: none;">
+  <div class="modal-dialog employee-block">
+
+  </div><!-- /.modal-dialog -->
+</div>
+<script>
+    retrieveCase = function (lcase) {
+        var msg = {"case":lcase};
+        $.ajax({
+            type: 'GET',
+            url: '/cases/'+lcase,
+            dataType: 'html',
+            data: msg,
+
+            success: function (response) {
+                $('.employee-block').html(response);
+            }
+        });
+    }
+</script>
+
+
+
+
+

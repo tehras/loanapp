@@ -10,8 +10,13 @@
  *
  *= require_self
  *= require font-awesome
+ *= require dataTables/jquery.dataTables.bootstrap3
  *= require_tree .
  */
+#example_wrapper {
+  padding-top:30px;
+  padding-bottom: 60px;
+}
 
 .fa {
   color: white;
@@ -47,6 +52,17 @@ ul#side li a {
   right-margin: 0px;
 }
 
+.employeeSpan{
+  color:#f39c12;
+}
+
+.patientSpan{
+  color:#2980b9;
+}
+
+.homeTitle:hover {
+  text-decoration: none;
+}
 
 
 

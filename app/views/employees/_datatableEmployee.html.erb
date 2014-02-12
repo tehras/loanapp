@@ -1,0 +1,122 @@
+
+<table cellpadding="1" cellspacing="0" border="1" class="table table-striped table-bordered table-hover table-green dataTable" id="example" width="100%">
+<thead style="background-color:#2980b9">
+<tr>
+  <th>Name</th>
+  <th>Phone Number</th>
+  <th>City</th>
+  <th>Patient</th>
+  <th>Case #</th>
+</tr>
+</thead>
+<tbody>
+
+<% @employees.each do |employee| %>
+<tr class="gradeX">
+  <td>
+    <% if employee.first_name.empty? %>
+        <% employeeName = ""%>
+    <% else %>
+        <% employeeName = employee.first_name %>
+    <% end %>
+    <% if employee.last_name.empty? %>
+        <% employeeName = employeeName + ""%>
+    <% else %>
+        <% employeeName = employeeName + " " + employee.last_name %>
+    <% end %>
+    <a data-toggle="modal" data-target="#flexModal" href="" onclick="retrieveEmployee(<%=employee.id.to_s%>)"><%= employeeName %></a>
+  </td>
+  <td>
+    <% if employee.home_number.empty? %>
+          -
+      <% else %>
+          <%= employee.home_number %>
+        <% end %>
+  </td>
+  <td class="center">
+    <% if employee.city.empty? %>
+        -
+    <% else %>
+        <%= employee.city %>
+    <% end %>
+  </td>
+  <td class="center">
+    <% caseList = @cases.find_by employee_id: employee.id %>
+       <% if caseList != nil %>
+        <% patient = @patients.find(caseList.patient_id) %>
+        <% sentence = patient.first_name + " " + patient.last_name %>
+        <a data-toggle="modal" data-target="#flexModal" href="" onclick="retrievePatient(<%=patient.id.to_s%>)"> <%= sentence %></a>
+       <% else %>
+         -
+       <% end %>
+  </td>
+  <td class="center">
+    <% caseList = @cases.find_by employee_id: employee.id %>
+    <% if caseList != nil %>
+        <a data-toggle="modal" data-target="#flexModal" href="" onclick="retrieveCase(<%=caseList.id.to_s%>)"> <%= caseList.id %></a>
+    <% else %>
+        -
+    <% end %>
+  </td>
+</tr>
+<% end %>
+</tbody>
+</table>
+      <span><%= link_to 'New Employee', new_employee_path, :style => "height:200%", :class => "btn btn-blue btn-lg" %></span>
+    </div>
+
+
+<div class="modal modal-flex fade in" id="flexModal" tabindex="-1" role="dialog" aria-labelledby="flexModalLabel" aria-hidden="false" style="display: none;">
+  <div class="modal-dialog employee-block patient-block employee-block">
+
+  </div><!-- /.modal-dialog -->
+</div>
+<script>
+    retrieveEmployee = function (employee) {
+        var msg = {"employee":employee};
+        $.ajax({
+            type: 'GET',
+            url: '/employees/'+employee,
+            dataType: 'html',
+            data: msg,
+
+            success: function (response) {
+                $('.employee-block').html(response);
+            }
+        });
+    }
+    retrievePatient = function (patient) {
+        var msg = {"patient":patient};
+        $.ajax({
+            type: 'GET',
+            url: '/patients/'+patient,
+            dataType: 'html',
+            data: msg,
+
+            success: function (response) {
+                $('.patient-block').html(response);
+            }
+        });
+    }
+    retrieveCase = function (lcase) {
+        var msg = {"case":lcase};
+        $.ajax({
+            type: 'GET',
+            url: '/cases/'+lcase,
+            dataType: 'html',
+            data: msg,
+
+            success: function (response) {
+                $('.employee-block').html(response);
+            }
+        });
+    }
+
+    $(document).ready(function() {
+        $('#example').dataTable();
+    } );
+</script>
+
+
+
+

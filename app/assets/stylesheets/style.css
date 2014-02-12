@@ -1760,9 +1760,9 @@ a.google-plus-link:hover {
     cursor: pointer;
 }
 
-.selected {
-    text-decoration: line-through;
-}
+/*.selected {*/
+    /*text-decoration: line-through;*/
+/*}*/
 
 .task-time {
     display: none;

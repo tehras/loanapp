@@ -24,8 +24,8 @@
 //= require plugins/messenger/messenger-theme-flat.js
 //= require plugins/daterangepicker/moment.js
 //= require plugins/daterangepicker/daterangepicker.js
-//= require plugins/morris/raphael-2.1.0.min.js
 //= require plugins/morris/morris.js
+//= require plugins/morris/raphael-2.1.0.min.js
 //= require plugins/flot/jquery.flot.js
 //= require plugins/flot/jquery.flot.resize.js
 //= require plugins/sparkline/jquery.sparkline.min.js
@@ -34,12 +34,55 @@
 //= require plugins/jvectormap/maps/jquery-jvectormap-world-mill-en.js
 //= require demo/map-demo-data.js
 //= require plugins/easypiechart/jquery.easypiechart.min.js
-//= require plugins/datatables/jquery.dataTables.js
-//= require plugins/datatables/datatables-bs3.js
 //= require flex.js
 //= require demo/dashboard-demo.js
+//= require bootstrap-select.js
+//= require bootstrap-datepicker.js
+//= require jquery.dataTables.js
 
+retrieveEmployee = function (employee) {
+    var msg = {"employee":employee};
+    $.ajax({
+        type: 'GET',
+        url: '/employees/'+employee,
+        dataType: 'html',
+        data: msg,
 
+        success: function (response) {
+            $('.employee-block').html(response);
+        }
+    });
+}
+retrievePatient = function (patient) {
+    var msg = {"patient":patient};
+    $.ajax({
+        type: 'GET',
+        url: '/patients/'+patient,
+        dataType: 'html',
+        data: msg,
+
+        success: function (response) {
+            $('.patient-block').html(response);
+        }
+    });
+}
+retrieveCase = function (lcase) {
+    var msg = {"case":lcase};
+    $.ajax({
+        type: 'GET',
+        url: '/cases/'+lcase,
+        dataType: 'html',
+        data: msg,
+
+        success: function (response) {
+            $('.employee-block').html(response);
+        }
+    });
+}
+
+$(document).ready(function() {
+    $('#example').dataTable();
+} );
 
 
 

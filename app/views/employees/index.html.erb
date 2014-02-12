@@ -14,26 +14,16 @@
     <div class="portlet-title">
       <h4>Employee List</h4>
     </div>
+    <div style="float:right">
+      <a href="#" onclick="loadNew('employeeList')"><i class="fa fa-list"></i></a>
+      <a href="#" onclick="loadNew('employeeTable')"><i class="fa fa-table"></i></a>
+    </div>
 
     <div class="clearfix"></div>
   </div>
   <div id="buttons" class="panel-collapse collapse in">
-    <div class="protlet-body" style="background-color:#ffffff; padding-right:25px; padding-left:25px; padding-bottom:25px">
-      <br/>
-      <% @employees.each do |employee| %>
-          <% if employee.first_name.empty? && employee.last_name.empty? %>
-              <% @temp = "N/A" %>
-          <% else %>
-              <% @temp = employee.first_name + " " + employee.last_name %>
-          <% end %>
-          <% @employeeJS = "retrieveEmployee(" + employee.id.to_s + ")" %>
-          <div style="height:34px"><span><a data-toggle="modal" data-target="#flexModal" href="" style="font-size:120%" onclick="retrieveEmployee(<%=employee.id.to_s%>)"><%= @temp %></a></span>
-                <span style="float:right"><%= link_to 'Edit', edit_employee_path(employee), :class => "btn btn-green", :style => "height:50%" %>
-                  <%= link_to 'Destroy', employee_path(employee),method: :delete, :class => "btn btn-red", :style => "height:50%" %></span>
-          </div>
-      <% end %>
-      <br/>
-      <span><%= link_to 'New Employee', new_employee_path, :style => "height:200%", :class => "btn btn-blue btn-lg" %></span>
+    <div class="protlet-body" id="tableWrapper" style="background-color:#ffffff; padding-right:25px; padding-left:25px; padding-bottom:25px">
+    <%= render partial:'listEmployee' %>
     </div>
   </div>
 </div>
@@ -43,6 +33,8 @@
 
   </div><!-- /.modal-dialog -->
 </div>
+
+
 <script>
     retrieveEmployee = function (employee) {
         var msg = {"employee":employee};
@@ -56,6 +48,24 @@
                 $('.employee-block').html(response);
             }
         });
+    }
+
+    $(document).ready(function() {
+        $('#example').dataTable();
+    } );
+
+    function loadNew(variable)
+    {
+        var msg = {"variable":variable};
+        $.ajax({
+            type: 'GET',
+            url: '/employees',
+            dataType: 'html',
+            data: msg,
+            success: function(response){
+                $('#tableWrapper').html(response);
+            }
+        })
     }
 </script>
 

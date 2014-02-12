@@ -4,7 +4,19 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
+    var = params['variable']
     @employees = Employee.all
+    @patients = Patient.all
+    @cases = Case.all
+    if var == "employeeList"
+      respond_to do |format|
+        format.html { render :partial=> 'employees/datatableEmployee'}
+      end
+    elsif var == "employeeTable"
+      respond_to do |format|
+        format.html { render :partial=> 'employees/listEmployee'}
+      end
+    end
   end
 
   # GET /employees/1

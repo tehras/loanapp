@@ -1,15 +1,47 @@
 <%= simple_form_for(@case) do |f| %>
-  <%= f.error_notification %>
+    <%= f.error_notification %>
+    <div class="portlet portlet-default" style="margin-top:30px">
+      <div class="portlet-heading">
+        <div class="portlet-title">
+          <h4>New Patient</h4>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="row portlet-body" style="margin-right:0px;margin-left:0px">
+        <div id="basicFormExample" class="panel-collapse in" style="height: auto;">
+          <div>
+            <div class="col-lg-6">
+              <div id="sandbox-container">
+                <%= f.input :start_date, input_html: {:class => "datepicker form-control", :"data-width" => "75%", style:"width: 50%"} %>
+              </div>
+              <div id="sandbox-container">
+              <%= f.input :pay_amount, input_html: {class: "form-control", id: "pay_amount", style: "width: 50%"} %>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <%= f.input :employee_id, input_html: {class: "selectpicker", title: 'Choose an Employee', :"data-width" => "75%", :"data-live-search" => "true", id: "employee"}, collection: @employees, :include_blank => false, :value_method => :id, :label_method => lambda { |employee| "#{employee.first_name}  #{employee.last_name}" } %>
+              <%= f.input :patient_id, input_html: {class: "selectpicker", title: 'Choose a Patient', :"data-width" => "75%", :"data-live-search" => "true", id: "patient"}, collection: @patients, :include_blank => false, :value_method => :id, :label_method => lambda { |patient| "#{patient.first_name}  #{patient.last_name}" } %>
+            </div>
+          </div>
 
-  <div class="form-inputs">
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.input :reason_for_end %>
-    <%= f.input :pay_amount %>
-    <%= f.input :invoice %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+          <div class="col-lg-12" align="center">
+            <br/>
+            <%= f.button :submit, class: "btn-success" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
 <% end %>
+
+<script>
+    $('.selectpicker').selectpicker();
+    $('.datepicker').datepicker({
+        format: 'mm/dd/yyyy',
+        startDate: '-3d'
+    })
+    $("#sandbox-container .input-group.date").datepicker({
+        format: 'mm/dd/yyyy',
+        startDate: '-3d'
+    });
+</script>

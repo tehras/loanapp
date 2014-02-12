@@ -1,0 +1,63 @@
+
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <% @tempPatient = @patients.find(@case.patient_id).first_name + " " + @patients.find(@case.patient_id).last_name %>
+    <% @tempEmployee =  @employees.find(@case.employee_id).first_name + " " + @employees.find(@case.employee_id).last_name %>
+
+    <h4 class="modal-title " id="flexModalLabel"> <span class="patientSpan"><%= @tempPatient %> </span> || <span class="employeeSpan"><%= @tempEmployee %> </span><small>- Case Num. - <%= @case.id %></small></h4>
+  </div>
+  <div class="modal-body ">
+
+    <p id="notice"><%= notice %></p>
+    <div class="row" style="font-size:80%">
+      <div class="col-lg-6">
+        <p id="notice"><%= notice %></p>
+
+        <p>
+          <strong>Patient:</strong>
+          <%= @patients.find(@case.patient_id).first_name %> <%= @patients.find(@case.patient_id).last_name %>
+        </p>
+
+        <p>
+          <strong>Employee:</strong>
+          <%= @employees.find(@case.employee_id).first_name %> <%= @employees.find(@case.employee_id).last_name %>
+        </p>
+
+        <p>
+          <strong>Start date:</strong>
+          <%= @case.start_date %>
+        </p>
+
+        <p>
+          <strong>End date:</strong>
+          <%= @case.end_date %>
+        </p>
+
+        <p>
+          <strong>Reason for end:</strong>
+          <%= @case.reason_for_end %>
+        </p>
+
+        <p>
+          <strong>Pay amount:</strong>
+          <%= @case.pay_amount %>
+        </p>
+
+        <p>
+          <strong>Invoice:</strong>
+          <%= @case.invoice %>
+        </p>
+
+
+      </div>
+    </div>
+
+
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <%= link_to 'Edit', edit_case_path(@case), :class=>"btn btn-green" %>
+  </div>
+</div><!-- /.modal-content -->
