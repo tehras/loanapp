@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery.dataTables.js
-//= require jquery_ujs
 //= require plugins/pace/pace.js
 //= require plugins/bootstrap/bootstrap.min.js
 //= require plugins/slimscroll/jquery.slimscroll.min.js
@@ -31,8 +30,6 @@
 //= require plugins/flot/jquery.flot.resize.js
 //= require plugins/sparkline/jquery.sparkline.min.js
 //= require plugins/moment/moment.min.js
-//= require plugins/jvectormap/jquery-jvectormap-1.2.2.min.js
-//= require plugins/jvectormap/maps/jquery-jvectormap-world-mill-en.js
 //= require demo/map-demo-data.js
 //= require plugins/easypiechart/jquery.easypiechart.min.js
 //= require flex.js
