@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 //= require jquery.dataTables.js
 //= require plugins/pace/pace.js
 //= require plugins/bootstrap/bootstrap.min.js

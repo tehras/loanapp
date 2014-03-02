@@ -4,12 +4,12 @@
 <ul id="side" class="nav navbar-nav side-nav">
 <!-- begin SIDE NAV USER PANEL -->
 <li class="side-user hidden-xs">
-  <img class="img-circle" src="/assets/profile-pic.jpg" alt="">
+  <i class="fa fa-user fa-5x"></i>
   <p class="welcome">
     <i class="fa fa-key"></i> Logged in as
   </p>
   <p class="name">
-    John <span class="last-name">Smith</span>
+     <span class="last-name"><%= if user_signed_in? then current_user.name else "Not Logged In" end %></span>
   </p>
   <div class="clearfix"></div>
 </li>
